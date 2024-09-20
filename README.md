@@ -1,1 +1,1 @@
-# nosql-challenge
+Crowdfunding Mini Project
