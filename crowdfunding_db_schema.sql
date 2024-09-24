@@ -1,3 +1,7 @@
+-- crowdfunding_db_schema.sql DATA MODELING
+
+-- Create the crowdfunding_db database
+CREATE DATABASE crowdfunding_db;
 
 -- Create the category table
 CREATE TABLE category (
@@ -40,6 +44,8 @@ CREATE TABLE campaign (
     FOREIGN KEY (subcategory_id) REFERENCES subcategory(subcategory_id)
 );
 
+-- TESTING THE crowdfunding_db SCHEMA 
+
 select * from campaign;
 
 select * from category;
@@ -49,30 +55,5 @@ select * from contacts;
 select * from subcategory;
 
 -- Query combining all 4 tables
-SELECT 
-    c.cf_id,
-    c.company_name,
-    c.description,
-    c.goal,
-    c.pledged,
-    c.outcome,
-    c.backers_count,
-    c.country,
-    c.currency,
-    c.launched_date,
-    c.end_date,
-    ct.first_name AS contact_first_name,
-    ct.last_name AS contact_last_name,
-    ct.email AS contact_email,
-    cat.category,
-    sub.subcategory
-FROM 
-    campaign c
-JOIN 
-    contacts ct ON c.contact_id = ct.contact_id
-JOIN 
-    category cat ON c.category_id = cat.category_id
-JOIN 
-    subcategory sub ON c.subcategory_id = sub.subcategory_id;
 
 
